@@ -21,10 +21,15 @@
   margin-left: auto;
   margin-right: auto;
   right: 0;
+  color: black;
 }
 .buttonsForm:focus{
   outline: none;
   box-shadow: none;
+}
+.buttonsModal{
+  color: black;
+  border-bottom:none;
 }
 .buttonsModal:focus{
   outline: none;
