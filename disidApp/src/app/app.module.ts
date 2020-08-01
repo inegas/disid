@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DisidTableViewComponent } from './components/disid-table-view/disid-table-view.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DisidTableViewComponent
   ],
   imports: [
     BrowserModule,
