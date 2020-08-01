@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DisidTableViewComponent } from './components/disid-table-view/disid-table-view.component';
 import { DisidNavViewComponent } from './components/disid-nav-view/disid-nav-view.component';
+import { DisidCreateEmployedViewComponent } from './components/disid-create-employed-view/disid-create-employed-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DisidTableViewComponent,
-    DisidNavViewComponent
+    DisidNavViewComponent,
+    DisidCreateEmployedViewComponent
   ],
   imports: [
     BrowserModule,
