@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-disid-create-employed-view',
-  templateUrl: './disid-create-employed-view.component.html',
-  styleUrls: ['./disid-create-employed-view.component.scss']
+  selector: 'app-disid-employed-view',
+  templateUrl: './disid-employed-view.component.html',
+  styleUrls: ['./disid-employed-view.component.scss']
 })
 export class DisidCreateEmployedViewComponent implements OnInit {
 

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DisidCreateEmployedViewComponent } from './disid-create-employed-view.component';
+import { DisidCreateEmployedViewComponent } from './disid-employed-view.component';
 
 describe('DisidCreateEmployedViewComponent', () => {
   let component: DisidCreateEmployedViewComponent;
