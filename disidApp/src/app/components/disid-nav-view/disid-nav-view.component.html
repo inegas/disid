@@ -24,6 +24,7 @@
           class="nav-link"
           data-toggle="modal"
           data-target="#createDepartamentModal"
+          [routerLink]="['/addDepartament']"
           >Create Departament</a
         >
       </li>
@@ -68,101 +69,4 @@
     </form>
   </div>
 </nav>
-<!-- create departament modal -->
-<div
-  class="modal fade"
-  id="createDepartamentModal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">
-          Create a new Departament
-        </h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="formGroupExampleInput">Type a new name</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Example input"
-            formControlName="name"
-            [(ngModel)]="departamentModel.name"
-          />
-          <span>{{showErrorInput}}</span>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-link buttonsModal"
-          data-dismiss="modal"
-        >
-          Close
-        </button>
-        <button class="btn btn-link buttonsModal" data-dismiss="modal" (click)="addDepartament(departamentModel)">Create</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- serch a specific employed modal -->
-<div
-  class="modal fade"
-  id="searchSpecificEmployedModal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">
-          Create a new Departament
-        </h5>
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-label="Close"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="formGroupExampleInput">Type a date</label>
-          <input
-            type="text"
-            class="form-control"
-            id="formGroupExampleInput"
-            placeholder="dd/mm/yyyy"
-          />
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-link buttonsModal"
-          data-dismiss="modal"
-        >
-          Close
-        </button>
-        <button type="button" class="btn btn-link buttonsModal">Search</button>
-      </div>
-    </div>
-  </div>
-</div>
+
