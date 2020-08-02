@@ -98,9 +98,11 @@
           <input
             type="text"
             class="form-control"
-            id="formGroupExampleInput"
             placeholder="Example input"
+            formControlName="name"
+            [(ngModel)]="departamentModel.name"
           />
+          <span>{{showErrorInput}}</span>
         </div>
       </div>
       <div class="modal-footer">
@@ -111,7 +113,7 @@
         >
           Close
         </button>
-        <button type="button" class="btn btn-link buttonsModal">Create</button>
+        <button class="btn btn-link buttonsModal" data-dismiss="modal" (click)="addDepartament(departamentModel)">Create</button>
       </div>
     </div>
   </div>

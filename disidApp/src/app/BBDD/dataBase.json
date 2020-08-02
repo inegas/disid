@@ -1,9 +1,94 @@
 {
-    "employees":[
-        
-    ],
-    
-    "departament":[
-
-    ]
+  "employees": [],
+  "departament": [
+    {
+      "name": "EL DOLAR",
+      "id": 1
+    },
+    {
+      "name": "EL DOLAR 2",
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "name": "Angel",
+      "id": 5
+    },
+    {
+      "name": "",
+      "id": 6
+    },
+    {
+      "name": "",
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "name": "Angel",
+      "id": 9
+    },
+    {
+      "name": "Pepe",
+      "id": 10
+    },
+    {
+      "name": "Angel",
+      "id": 11
+    },
+    {
+      "name": "Angel",
+      "id": 12
+    },
+    {
+      "name": "",
+      "id": 13
+    },
+    {
+      "name": "Angel",
+      "id": 14
+    },
+    {
+      "name": "",
+      "id": 15
+    },
+    {
+      "name": "Angel",
+      "id": 16
+    },
+    {
+      "name": "",
+      "id": 17
+    },
+    {
+      "name": "",
+      "id": 18
+    },
+    {
+      "name": "Angel",
+      "id": 19
+    },
+    {
+      "name": "Hola",
+      "id": 20
+    },
+    {
+      "name": "pepe",
+      "id": 21
+    },
+    {
+      "name": "Jim my",
+      "id": 22
+    },
+    {
+      "name": " ",
+      "id": 23
+    }
+  ]
 }
