@@ -17,3 +17,11 @@
 .topSpace {
   padding-top: 1%;
 }
+.buttonsModal{
+  color: black;
+  border-bottom:none;
+}
+.buttonsModal:focus{
+  outline: none;
+  box-shadow: none;
+}
