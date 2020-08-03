@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Employed, Departament } from '../../BBDD/entities/database-model';
 import { EmployedService } from '../../services/employed.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-disid-employed-view',
@@ -15,7 +16,7 @@ export class DisidCreateEmployedViewComponent implements OnInit {
   public employedModelOutput:Employed;
   public allDepartaments:Departament[];
 
-  constructor(private service: EmployedService) { }
+  constructor(private service: EmployedService, private router:Router) { }
 
   ngOnInit(): void {
     this.employedModel = new Employed();
@@ -63,6 +64,8 @@ export class DisidCreateEmployedViewComponent implements OnInit {
 
   public setEmployed(){
     this.service.postEmployed(this.employedModelOutput).subscribe();
+    this.router.navigateByUrl('/home');
+
   }
 
   private getAgeEmployed(employedData: Employed): number {

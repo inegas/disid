@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployedService } from '../../services/employed.service';
+import { Employed, Departament } from '../../BBDD/entities/database-model';
 
 @Component({
   selector: 'app-disid-table-view',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisidTableViewComponent implements OnInit {
 
-  constructor() { }
+  public employedList:Employed[];
+
+  constructor(private service:EmployedService) { }
 
   ngOnInit(): void {
+    this.getAllEmployees();
+  }
+
+  public getAllEmployees(){
+    this.service.getEmployees().subscribe(
+      (data:Employed[]) =>{
+        this.employedList = data;
+        console.log(this.employedList);
+        
+      })
   }
 
 }

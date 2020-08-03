@@ -12,52 +12,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>20</td>
-        <td>20/10/2020</td>
-        <td>Marketing</td>
+      <tr *ngFor="let item of employedList">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.lastName}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.entryDate | date}}</td>
+        <td>{{item.departament.name}}</td>
         <td>
           <span class="material-icons ico" routerLink="/addEmployed">create</span>
           <span class="material-icons ico" data-toggle="modal" data-target="#deleteEmployedModal">delete</span>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>27</td>
-        <td>01/05/2000</td>
-        <td>Marketing</td>
-        <td>
-          <span class="material-icons ico" routerLink="/addEmployed">create</span>
-          <span class="material-icons ico">delete</span>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>Bird</td>
-        <td>50</td>
-        <td>10/01/190</td>
-        <td>Marketing</td>
-        <td>
-          <span class="material-icons ico" routerLink="/addEmployed">create</span>
-          <span class="material-icons ico">delete</span>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>Bird</td>
-        <td>35</td>
-        <td>01/01/2012</td>
-        <td>Marketing</td>
-        <td>
-          <span class="material-icons ico" routerLink="/addEmployed">create</span>
-          <span class="material-icons ico">delete</span>
         </td>
       </tr>
     </tbody>

@@ -35,4 +35,9 @@ export class EmployedService {
     return this.http.get(url);
   }
 
+  public getEmployees(){
+    const url = `${URL_BASE}/${URL_EMPLOYED}`;
+    return this.http.get(url);
+  }
+
 }

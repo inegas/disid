@@ -9,6 +9,46 @@
         "name": "Finances"
       },
       "id": 1
+    },
+    {
+      "name": "Pepe",
+      "lastName": "Jimenez",
+      "age": 24,
+      "entryDate": "2010-10-10T00:00:00.000Z",
+      "departament": {
+        "name": "Human resources"
+      },
+      "id": 2
+    },
+    {
+      "name": "Sergio",
+      "lastName": "Marin",
+      "age": 20,
+      "entryDate": "2005-05-05T00:00:00.000Z",
+      "departament": {
+        "name": "I+D"
+      },
+      "id": 3
+    },
+    {
+      "name": "Ramon",
+      "lastName": "Piñero",
+      "age": 20,
+      "entryDate": "2000-03-20T00:00:00.000Z",
+      "departament": {
+        "name": "Finances"
+      },
+      "id": 4
+    },
+    {
+      "name": "Alex",
+      "lastName": "Robira",
+      "age": 22,
+      "entryDate": "2005-01-02T00:00:00.000Z",
+      "departament": {
+        "name": "Finances"
+      },
+      "id": 5
     }
   ],
   "departament": [
