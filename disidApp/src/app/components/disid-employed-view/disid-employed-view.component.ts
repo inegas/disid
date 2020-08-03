@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup, AbstractControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Employed } from '../../BBDD/entities/database-model';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-disid-employed-view',
@@ -10,9 +9,10 @@ import { DatePipe } from '@angular/common';
 })
 export class DisidCreateEmployedViewComponent implements OnInit {
 
-  public employedModel: Employed;
 
-  constructor(private datePipe: DatePipe) { }
+  public employedModel: Employed;
+  public employedModelOutput:Employed;
+  constructor() { }
 
   ngOnInit(): void {
     this.employedModel = new Employed();
@@ -34,14 +34,14 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     let entryDate = this.getEntryDate(employedData);
     console.log(entryDate + 'im to god');
 
-    let employedModelOutput:Employed = {
+    this.employedModelOutput = {
       name: this.employedModel.name,
       lastName: this.employedModel.lastName,
       age: age,
       entryDate: entryDate
     }
 
-    console.log(employedModelOutput);
+    console.log(this.employedModelOutput);
     
   }
 
