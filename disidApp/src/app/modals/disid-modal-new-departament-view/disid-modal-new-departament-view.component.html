@@ -23,14 +23,20 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label for="formGroupExampleInput">Type a new name</label>
+          <label for="formGroupExampleInput">Type a new name:</label>
           <input
             type="text"
             class="form-control"
             [(ngModel)]="departamentModel.name"
             maxlength="30"
           />
-          <span *ngIf="departamentModel.name === undefined || departamentModel.name === ''">{{showErrorMessage}}</span>
+          <span
+            *ngIf="
+              departamentModel.name === undefined ||
+              departamentModel.name === ''
+            "
+            >{{ showErrorMessage }}</span
+          >
         </div>
       </div>
       <div class="modal-footer">
@@ -38,12 +44,21 @@
           type="button"
           class="btn btn-link buttonsModal"
           data-dismiss="modal"
-          [routerLink]="['/home']" 
+          [routerLink]="['/home']"
         >
           Close
         </button>
-        <button *ngIf="departamentModel.name !== undefined && departamentModel.name !== ''" class="btn btn-link buttonsModal" data-dismiss="modal" [routerLink]="['/home']" (click)="addDepartament(departamentModel)">Create</button>
-        <!-- <button *ngIf="departamentModel.name === ''" class="btn btn-link buttonsModal" (click)="addDepartament(departamentModel)">Create</button> -->
+        <button
+          *ngIf="
+            departamentModel.name !== undefined && departamentModel.name !== ''
+          "
+          class="btn btn-link buttonsModal"
+          data-dismiss="modal"
+          [routerLink]="['/home']"
+          (click)="addDepartament(departamentModel)"
+        >
+          Create
+        </button>
       </div>
     </div>
   </div>

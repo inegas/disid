@@ -1,5 +1,5 @@
 <div class="divSize">
-  <form>
+  <form [formGroup]="employedForm" (ngSubmit)="onFormSubmit(employedForm.value)">
     <div class="form-group">
       <label for="formGroupExampleInput">Name</label>
       <input
@@ -7,8 +7,13 @@
         class="form-control inputSize"
         id="formGroupExampleInput"
         placeholder="Example input"
-        maxlength="30"
+        formControlName="name"
+        maxlength=20
+        [(ngModel)]="employedModel.name"
       />
+      <label *ngIf="employedForm.get('name').invalid" [ngClass]="'error'">
+        *Field required
+      </label>
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Last name</label>
@@ -17,28 +22,43 @@
         class="form-control inputSize"
         id="formGroupExampleInput2"
         placeholder="Another input"
-        maxlength="30"
+        formControlName="lastName"
+        maxlength=20
+        [(ngModel)]="employedModel.lastName"
       />
+      <label *ngIf="employedForm.get('lastName').invalid" [ngClass]="'error'">
+        *Field required
+      </label>
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput2">Age</label>
+      <label for="formGroupExampleInput2">Birth Date</label>
       <input
-        type="text"
+        type="date"
         class="form-control inputSize"
         id="formGroupExampleInput2"
-        placeholder="Another input"
-        maxlength="30"
+        placeholder="dd/mm/yyyy"
+        formControlName="age"
+        maxlength=10
+        [(ngModel)]="employedModel.age"
       />
+      <label *ngIf="employedForm.get('age').invalid" [ngClass]="'error'">
+        *Field required
+      </label>
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Entry date</label>
       <input
-        type="text"
+        type="date"
         class="form-control inputSize"
         id="formGroupExampleInput2"
-        placeholder="Another input"
-        maxlength="30"
+        placeholder="dd/mm/yyyy"
+        formControlName="entryDate"
+        maxlength=10
+        [(ngModel)]="employedModel.entryDate"
       />
+      <label *ngIf="employedForm.get('entryDate').invalid" [ngClass]="'error'">
+        *Field required
+      </label>
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1">Departament</label>
@@ -55,46 +75,26 @@
       Back
     </button>
     <button
-      type="button"
+      type="submit"
       class="btn btn-link buttonsForm"
       data-toggle="modal"
       data-target="#exampleModal"
+      (click)="onFormSubmit(employedForm.value)"
+      *ngIf="employedForm.invalid"
+      [disabled]="true"
     >
       Continue
     </button>
-  </div>
-  <!-- Modal confirm new employed -->
-  <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
+    <button
+    type="submit"
+    class="btn btn-link buttonsForm"
+    data-toggle="modal"
+    data-target="#exampleModal"
+    (click)="onFormSubmit(employedForm.value)"
+    *ngIf="employedForm.valid"
+    [disabled]="false"
   >
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-link buttonsModal" data-dismiss="modal">
-            Close
-          </button>
-          <button type="button" class="btn btn-link buttonsModal">Save changes</button>
-        </div>
-      </div>
-    </div>
+    Continue
+  </button>
   </div>
 </div>

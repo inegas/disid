@@ -10,5 +10,5 @@ export class Employed {
     public name:string;
     public lastName:string;
     public age:number;
-    public entryDate:Date = new Date();
+    public entryDate:Date
 }
