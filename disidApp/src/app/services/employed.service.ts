@@ -40,4 +40,9 @@ export class EmployedService {
     return this.http.get(url);
   }
 
+  public deleteEmployed(id:number){
+    const url = `${URL_BASE}/${URL_EMPLOYED}/${id}`;
+    return this.http.delete(url);
+  }
+
 }

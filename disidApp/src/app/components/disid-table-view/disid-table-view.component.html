@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of employedList">
+      <tr (click)="selectEmployed(item)" *ngFor="let item of employedList">
         <th scope="row">{{item.id}}</th>
         <td>{{item.name}}</td>
         <td>{{item.lastName}}</td>
@@ -30,9 +30,9 @@
 <!-- Delete modal -->
 <div class="modal fade" id="deleteEmployedModal" tabindex="-1" role="dialog" aria-labelledby="deleteEmployedModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content" *ngIf="employed">
       <div class="modal-body">
-        ...
+        {{employed.name}}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-link buttonsModal" data-dismiss="modal">Close</button>

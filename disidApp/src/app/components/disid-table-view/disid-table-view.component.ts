@@ -10,6 +10,7 @@ import { Employed, Departament } from '../../BBDD/entities/database-model';
 export class DisidTableViewComponent implements OnInit {
 
   public employedList:Employed[];
+  public employed:Employed;
 
   constructor(private service:EmployedService) { }
 
@@ -24,6 +25,17 @@ export class DisidTableViewComponent implements OnInit {
         console.log(this.employedList);
         
       })
+  }
+
+  public selectEmployed(item:Employed){
+   this.employed= item;
+  }
+
+  public deleteEmployed(item:Employed){
+    console.log(item);
+    let parseItemId = Number(item.id);
+    this.service.deleteEmployed(parseItemId);
+    
   }
 
 }
