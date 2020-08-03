@@ -49,6 +49,26 @@
         "name": "Finances"
       },
       "id": 5
+    },
+    {
+      "name": "Miguel",
+      "lastName": "Ferran",
+      "age": 160,
+      "entryDate": "2001-05-09T00:00:00.000Z",
+      "departament": {
+        "name": "Human resources"
+      },
+      "id": 6
+    },
+    {
+      "name": "Joaquin",
+      "lastName": "Campello",
+      "age": 30,
+      "entryDate": "2001-01-01T00:00:00.000Z",
+      "departament": {
+        "name": "Finances"
+      },
+      "id": 7
     }
   ],
   "departament": [

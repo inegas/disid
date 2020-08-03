@@ -65,7 +65,6 @@ export class DisidCreateEmployedViewComponent implements OnInit {
   public setEmployed(){
     this.service.postEmployed(this.employedModelOutput).subscribe();
     this.router.navigateByUrl('/home');
-
   }
 
   private getAgeEmployed(employedData: Employed): number {
