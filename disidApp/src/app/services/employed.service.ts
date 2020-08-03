@@ -11,7 +11,7 @@ const httpOptions = {
 
 const URL_BASE = 'http://localhost:3000';
 const URL_DEPARTAMENT = 'departament';
-const URL_EMPLOYED = 'employed';
+const URL_EMPLOYED = 'employees';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,16 @@ export class EmployedService {
   public postDepartament(nameDepartament:Departament){
     const url = `${URL_BASE}/${URL_DEPARTAMENT}`;
     return this.http.post(url, nameDepartament, httpOptions);
+  }
+
+  public postEmployed(employed:Employed){
+    const url = `${URL_BASE}/${URL_EMPLOYED}`;
+    return this.http.post(url, employed, httpOptions);
+  }
+
+  public getDepartaments(){
+    const url = `${URL_BASE}/${URL_DEPARTAMENT}`;
+    return this.http.get(url);
   }
 
 }

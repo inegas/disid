@@ -1,4 +1,32 @@
 {
-  "employees": [],
-  "departament": []
+  "employees": [
+    {
+      "name": "Angel",
+      "lastName": "Banegas",
+      "age": 2008,
+      "entryDate": "0012-12-12T00:00:00.000Z",
+      "departament": {
+        "name": "Finances"
+      },
+      "id": 1
+    }
+  ],
+  "departament": [
+    {
+      "name": "Marketing",
+      "id": 1
+    },
+    {
+      "name": "Human resources",
+      "id": 2
+    },
+    {
+      "name": "Finances",
+      "id": 3
+    },
+    {
+      "name": "I+D",
+      "id": 4
+    }
+  ]
 }

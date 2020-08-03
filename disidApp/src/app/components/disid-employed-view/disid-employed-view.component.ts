@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { Employed } from '../../BBDD/entities/database-model';
+import { Employed, Departament } from '../../BBDD/entities/database-model';
+import { EmployedService } from '../../services/employed.service';
 
 @Component({
   selector: 'app-disid-employed-view',
@@ -12,10 +13,22 @@ export class DisidCreateEmployedViewComponent implements OnInit {
 
   public employedModel: Employed;
   public employedModelOutput:Employed;
-  constructor() { }
+  public allDepartaments:Departament[];
+
+  constructor(private service: EmployedService) { }
 
   ngOnInit(): void {
     this.employedModel = new Employed();
+    this.employedModel.departament = new Departament();
+    this.getDepartaments();
+  }
+
+  public getDepartaments(){
+    this.service.getDepartaments().subscribe(
+      (data:Departament[]) =>{
+        this.allDepartaments = data;
+        console.log(this.allDepartaments);
+      })
   }
 
   employedForm = new FormGroup({
@@ -38,11 +51,18 @@ export class DisidCreateEmployedViewComponent implements OnInit {
       name: this.employedModel.name,
       lastName: this.employedModel.lastName,
       age: age,
-      entryDate: entryDate
+      entryDate: entryDate,
+      departament: this.employedModel.departament
     }
-
     console.log(this.employedModelOutput);
-    
+  }
+
+  public getDepartamentValue(event){
+    this.employedModel.departament.name = event.target.value;
+  }
+
+  public setEmployed(){
+    this.service.postEmployed(this.employedModelOutput).subscribe();
   }
 
   private getAgeEmployed(employedData: Employed): number {

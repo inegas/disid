@@ -1,0 +1,38 @@
+<div class="formSize">
+  <form
+    [formGroup]="departamentForm"
+  >
+    <div class="form-group">
+      <label for="exampleInputEmail1">Departament name:</label>
+      <input
+        type="text"
+        class="form-control inputSize"
+        id="formGroupExampleInput"
+        placeholder="Example input"
+        formControlName="name"
+        maxlength="20"
+        [(ngModel)]="departamentModel.name"
+      />
+      <small *ngIf="departamentForm.get('name').invalid" [ngClass]="'error'">
+        * Field required
+      </small>
+    </div>
+    <button
+      type="submit"
+      class="btn btn-link"
+      *ngIf="departamentForm.invalid"
+      [disabled]="true"
+    >
+      Create
+    </button>
+    <button
+      type="submit"
+      class="btn btn-link"
+      (click)="onFormSubmit(departamentForm.value)"
+      *ngIf="departamentForm.valid"
+      [disabled]="false"
+    >
+      Create
+    </button>
+  </form>
+</div>

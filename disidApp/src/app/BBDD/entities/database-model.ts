@@ -11,4 +11,5 @@ export class Employed {
     public lastName:string;
     public age:number;
     public entryDate:Date
+    public departament:Departament
 }

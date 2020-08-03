@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DisidCreateEmployedViewComponent } from './components/disid-employed-view/disid-employed-view.component';
 import { DisidTableViewComponent } from './components/disid-table-view/disid-table-view.component';
+import { DisidDepartamentViewComponent } from './components/disid-departament-view/disid-departament-view.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,9 @@ const routes: Routes = [
   },
   {
     path: 'addEmployed', component: DisidCreateEmployedViewComponent
+  },
+  {
+    path: 'addDepartament', component: DisidDepartamentViewComponent
   }
 ];
 

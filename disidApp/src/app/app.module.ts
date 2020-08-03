@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { DisidTableViewComponent } from './components/disid-table-view/disid-table-view.component';
 import { DisidNavViewComponent } from './components/disid-nav-view/disid-nav-view.component';
 import { DisidCreateEmployedViewComponent } from './components/disid-employed-view/disid-employed-view.component';
+import { DisidDepartamentViewComponent } from './components/disid-departament-view/disid-departament-view.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { DisidCreateEmployedViewComponent } from './components/disid-employed-vi
     DisidTableViewComponent,
     DisidNavViewComponent,
     DisidCreateEmployedViewComponent,
+    DisidDepartamentViewComponent,
   ],
   imports: [
     BrowserModule,

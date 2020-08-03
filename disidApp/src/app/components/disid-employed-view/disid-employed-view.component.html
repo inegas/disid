@@ -1,10 +1,9 @@
 <div class="divSize">
   <form
     [formGroup]="employedForm"
-    (ngSubmit)="onFormSubmit(employedForm.value)"
   >
     <div class="form-group">
-      <label for="formGroupExampleInput">Name</label>
+      <small for="formGroupExampleInput">Name</small>
       <input
         type="text"
         class="form-control inputSize"
@@ -14,12 +13,12 @@
         maxlength="20"
         [(ngModel)]="employedModel.name"
       />
-      <label *ngIf="employedForm.get('name').invalid" [ngClass]="'error'">
-        *Field required
-      </label>
+      <small *ngIf="employedForm.get('name').invalid" [ngClass]="'error'">
+        * Field required
+      </small>
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput2">Last name</label>
+      <small for="formGroupExampleInput2">Last name</small>
       <input
         type="text"
         class="form-control inputSize"
@@ -29,12 +28,12 @@
         maxlength="20"
         [(ngModel)]="employedModel.lastName"
       />
-      <label *ngIf="employedForm.get('lastName').invalid" [ngClass]="'error'">
-        *Field required
-      </label>
+      <small *ngIf="employedForm.get('lastName').invalid" [ngClass]="'error'">
+        * Field required
+      </small>
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput2">Birth Date</label>
+      <small for="formGroupExampleInput2">Birth Date</small>
       <input
         type="date"
         class="form-control inputSize"
@@ -44,12 +43,12 @@
         maxlength="10"
         [(ngModel)]="employedModel.age"
       />
-      <label *ngIf="employedForm.get('age').invalid" [ngClass]="'error'">
-        *Field required
-      </label>
+      <small *ngIf="employedForm.get('age').invalid" [ngClass]="'error'">
+        * Field required
+      </small>
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput2">Entry date</label>
+      <small for="formGroupExampleInput2">Entry date</small>
       <input
         type="date"
         class="form-control inputSize"
@@ -59,17 +58,14 @@
         maxlength="10"
         [(ngModel)]="employedModel.entryDate"
       />
-      <label *ngIf="employedForm.get('entryDate').invalid" [ngClass]="'error'">
-        *Field required
-      </label>
+      <small *ngIf="employedForm.get('entryDate').invalid" [ngClass]="'error'">
+        * Field required
+      </small>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Departament</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>Accounting and Finance</option>
-        <option>Human resources</option>
-        <option>Administration</option>
-        <option>Marketing</option>
+      <small for="exampleFormControlSelect1">Departament</small>
+      <select (change)="getDepartamentValue($event)" class="form-control" id="exampleFormControlSelect1">
+        <option *ngFor="let item of allDepartaments">{{item.name}}</option>
       </select>
     </div>
   </form>
@@ -126,14 +122,14 @@
               <td scope="row">{{employedModelOutput.name}}</td>
               <td>{{employedModelOutput.lastName}}</td>
               <td>{{employedModelOutput.age}}</td>
-              <td>Marketing</td>
+              <td>{{employedModelOutput.departament.name}}</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-link buttonsModal" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-link buttonsModal">Confirm</button>
+        <button type="button" (click)="setEmployed()" class="btn btn-link buttonsModal">Confirm</button>
       </div>
     </div>
   </div>
