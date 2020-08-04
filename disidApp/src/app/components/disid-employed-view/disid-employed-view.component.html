@@ -32,7 +32,7 @@
         * Field required
       </small>
     </div>
-    <div class="form-group">
+    <div class="form-group" *ngIf="infoEmployed" hidden>
       <small for="formGroupExampleInput2">Birth Date</small>
       <input
         type="date"
@@ -47,7 +47,37 @@
         * Field required
       </small>
     </div>
-    <div class="form-group">
+    <div class="form-group" *ngIf="!infoEmployed">
+      <small for="formGroupExampleInput2">Birth Date</small>
+      <input
+        type="date"
+        class="form-control inputSize"
+        id="formGroupExampleInput2"
+        placeholder="dd/mm/yyyy"
+        formControlName="age"
+        maxlength="10"
+        [(ngModel)]="employedModel.age"
+      />
+      <small *ngIf="employedForm.get('age').invalid" [ngClass]="'error'">
+        * Field required
+      </small>
+    </div>
+    <div class="form-group" *ngIf="infoEmployed" hidden>
+      <small for="formGroupExampleInput2">Entry date</small>
+      <input
+        type="date"
+        class="form-control inputSize"
+        id="formGroupExampleInput2"
+        placeholder="dd/mm/yyyy"
+        formControlName="entryDate"
+        maxlength="10"
+        [(ngModel)]="employedModel.entryDate"
+      />
+      <small *ngIf="employedForm.get('entryDate').invalid" [ngClass]="'error'">
+        * Field required
+      </small>
+    </div>
+    <div class="form-group" *ngIf="!infoEmployed">
       <small for="formGroupExampleInput2">Entry date</small>
       <input
         type="date"
@@ -65,12 +95,12 @@
     <div class="form-group">
       <small for="exampleFormControlSelect1">Departament</small>
       <select (change)="getDepartamentValue($event)" class="form-control" id="exampleFormControlSelect1">
-        <option *ngFor="let item of allDepartaments">{{item.name}}</option>
+        <option *ngFor="let item of allDepartaments" (change)="employedModel.departament.name">{{item.name}}</option>
       </select>
     </div>
   </form>
   <div>
-    <button type="button" class="btn btn-link buttonsForm" routerLink="/home">
+    <button type="button" class="btn btn-link buttonsForm" (click)="cleanLocalStorage()">
       Back
     </button>
     <button

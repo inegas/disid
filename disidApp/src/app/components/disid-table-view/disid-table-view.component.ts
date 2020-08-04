@@ -39,4 +39,10 @@ export class DisidTableViewComponent implements OnInit {
     this.getAllEmployees(); 
   }
 
+  public editEmployed(item:Employed){
+    console.log(item);
+    localStorage.setItem('employed', JSON.stringify(item));
+    this.router.navigateByUrl('/addEmployed');
+  }
+
 }

@@ -20,7 +20,7 @@
         <td>{{item.entryDate | date}}</td>
         <td>{{item.departament.name}}</td>
         <td>
-          <span class="material-icons ico" routerLink="/addEmployed">create</span>
+          <span class="material-icons ico" (click)="editEmployed(item)">create</span>
           <span class="material-icons ico" data-toggle="modal" data-target="#deleteEmployedModal">delete</span>
         </td>
       </tr>

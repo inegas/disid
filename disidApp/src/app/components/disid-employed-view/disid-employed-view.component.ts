@@ -1,8 +1,9 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Employed, Departament } from '../../BBDD/entities/database-model';
 import { EmployedService } from '../../services/employed.service';
 import { Router } from '@angular/router';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-disid-employed-view',
@@ -13,20 +14,31 @@ export class DisidCreateEmployedViewComponent implements OnInit {
 
 
   public employedModel: Employed;
-  public employedModelOutput:Employed;
-  public allDepartaments:Departament[];
+  public employedModelOutput: Employed;
+  public allDepartaments: Departament[];
+  public infoEmployed:Employed;
 
-  constructor(private service: EmployedService, private router:Router) { }
+  constructor(private service: EmployedService, private router: Router) { }
 
   ngOnInit(): void {
     this.employedModel = new Employed();
-    this.employedModel.departament = new Departament();
     this.getDepartaments();
+    this.infoEmployed = this.getEmployedToEdit();
+    if(this.infoEmployed === undefined){
+      this.employedModel.departament = new Departament();
+      
+    }else{
+      this.infoEmployed = this.getEmployedToEdit();
+      this.employedModel.name = this.infoEmployed.name;
+      this.employedModel.lastName = this.infoEmployed.lastName;
+      this.employedModel.departament = this.infoEmployed.departament;
+    }
+
   }
 
-  public getDepartaments(){
+  public getDepartaments() {
     this.service.getDepartaments().subscribe(
-      (data:Departament[]) =>{
+      (data: Departament[]) => {
         this.allDepartaments = data;
         console.log(this.allDepartaments);
       })
@@ -58,13 +70,22 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     console.log(this.employedModelOutput);
   }
 
-  public getDepartamentValue(event){
+  public getDepartamentValue(event) {
     this.employedModel.departament.name = event.target.value;
   }
 
-  public setEmployed(){
+  public setEmployed() {
     this.service.postEmployed(this.employedModelOutput).subscribe();
     this.router.navigateByUrl('/home');
+  }
+
+  public cleanLocalStorage(){
+    if (this.infoEmployed) {
+      localStorage.removeItem('employed');
+      this.router.navigateByUrl('/home');
+    } else {
+      this.router.navigateByUrl('/home');
+    }
   }
 
   private getAgeEmployed(employedData: Employed): number {
@@ -81,8 +102,13 @@ export class DisidCreateEmployedViewComponent implements OnInit {
 
   private getEntryDate(employedData: Employed): Date {
     let getEntryDate: Date = new Date(employedData.entryDate);
-
     return getEntryDate;
+  }
+
+  private getEmployedToEdit(){
+    let employed:Employed = JSON.parse(localStorage.getItem('employed'));
+    return employed;
+
   }
 
 }
