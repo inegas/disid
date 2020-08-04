@@ -47,7 +47,7 @@ export class EmployedService {
 
   public editEmployed(employed: Employed) {
     const url = `${URL_BASE}/${URL_EMPLOYED}/${employed.id}`
-    return this.http.post(url, employed, httpOptions);
+    return this.http.put(url, employed, httpOptions);
   }
 
 }

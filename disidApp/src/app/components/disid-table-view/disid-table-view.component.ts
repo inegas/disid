@@ -16,6 +16,9 @@ export class DisidTableViewComponent implements OnInit {
   constructor(private service:EmployedService, private router:Router) { }
 
   ngOnInit(): void {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['home']);
+  }); 
     this.getAllEmployees();
   }
 

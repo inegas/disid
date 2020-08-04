@@ -80,11 +80,12 @@ export class DisidCreateEmployedViewComponent implements OnInit {
   public onFormEditSubmit(): void {
 
     this.employedModelOutput = {
-      name: this.employedModel.name,
-      lastName: this.employedModel.lastName,
-      age: this.employedModel.age,
-      entryDate: this.employedModel.entryDate,
-      departament: this.employedModel.departament
+      name: this.infoEmployed.name,
+      lastName: this.infoEmployed.lastName,
+      age: this.infoEmployed.age,
+      entryDate: this.infoEmployed.entryDate,
+      departament: this.infoEmployed.departament,
+      id: this.infoEmployed.id
     }
     console.log(this.employedModelOutput);
   }
@@ -100,6 +101,7 @@ export class DisidCreateEmployedViewComponent implements OnInit {
 
   public editEmployed(){
     this.service.editEmployed(this.infoEmployed).subscribe();
+    localStorage.removeItem('employed');
     this.router.navigateByUrl('/home');
   }
 
