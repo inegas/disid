@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import {Employed, Departament} from '../BBDD/entities/database-model';
+import { Employed, Departament } from '../BBDD/entities/database-model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -18,31 +18,36 @@ const URL_EMPLOYED = 'employees';
 })
 export class EmployedService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public postDepartament(nameDepartament:Departament){
+  public postDepartament(nameDepartament: Departament) {
     const url = `${URL_BASE}/${URL_DEPARTAMENT}`;
     return this.http.post(url, nameDepartament, httpOptions);
   }
 
-  public postEmployed(employed:Employed){
+  public postEmployed(employed: Employed) {
     const url = `${URL_BASE}/${URL_EMPLOYED}`;
     return this.http.post(url, employed, httpOptions);
   }
 
-  public getDepartaments(){
+  public getDepartaments() {
     const url = `${URL_BASE}/${URL_DEPARTAMENT}`;
     return this.http.get(url);
   }
 
-  public getEmployees(){
+  public getEmployees() {
     const url = `${URL_BASE}/${URL_EMPLOYED}`;
     return this.http.get(url);
   }
 
-  public deleteEmployed(id:number){
+  public deleteEmployed(id: number) {
     const url = `${URL_BASE}/${URL_EMPLOYED}/${id}`;
     return this.http.delete(url);
+  }
+
+  public editEmployed(employed: Employed) {
+    const url = `${URL_BASE}/${URL_EMPLOYED}/${employed.id}`
+    return this.http.post(url, employed, httpOptions);
   }
 
 }

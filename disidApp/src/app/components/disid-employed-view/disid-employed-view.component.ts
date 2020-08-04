@@ -30,6 +30,8 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     }else{
       this.infoEmployed = this.getEmployedToEdit();
       this.employedModel.name = this.infoEmployed.name;
+      this.employedModel.age = this.infoEmployed.age;
+      this.employedModel.entryDate = this.infoEmployed.entryDate;
       this.employedModel.lastName = this.infoEmployed.lastName;
       this.employedModel.departament = this.infoEmployed.departament;
     }
@@ -51,6 +53,11 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     entryDate: new FormControl('', [Validators.required, , Validators.maxLength(10)]),
   })
 
+  employedEditForm = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+    lastName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+  })
+
   public onFormSubmit(employedData: Employed): void {
     this.getAgeEmployed(employedData);
     this.getEntryDate(employedData);
@@ -70,12 +77,29 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     console.log(this.employedModelOutput);
   }
 
+  public onFormEditSubmit(): void {
+
+    this.employedModelOutput = {
+      name: this.employedModel.name,
+      lastName: this.employedModel.lastName,
+      age: this.employedModel.age,
+      entryDate: this.employedModel.entryDate,
+      departament: this.employedModel.departament
+    }
+    console.log(this.employedModelOutput);
+  }
+
   public getDepartamentValue(event) {
     this.employedModel.departament.name = event.target.value;
   }
 
   public setEmployed() {
     this.service.postEmployed(this.employedModelOutput).subscribe();
+    this.router.navigateByUrl('/home');
+  }
+
+  public editEmployed(){
+    this.service.editEmployed(this.infoEmployed).subscribe();
     this.router.navigateByUrl('/home');
   }
 
@@ -108,7 +132,6 @@ export class DisidCreateEmployedViewComponent implements OnInit {
   private getEmployedToEdit(){
     let employed:Employed = JSON.parse(localStorage.getItem('employed'));
     return employed;
-
   }
 
 }
