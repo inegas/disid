@@ -50,4 +50,9 @@ export class EmployedService {
     return this.http.put(url, employed, httpOptions);
   }
 
+  public filterBy(string){
+    const url = `${URL_BASE}/${URL_EMPLOYED}`+'?'+'departament.name_like'+'='+string;
+    return this.http.get(url);
+  }
+
 }

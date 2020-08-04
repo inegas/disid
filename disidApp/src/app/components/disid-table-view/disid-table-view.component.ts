@@ -10,60 +10,70 @@ import { Router } from '@angular/router';
 })
 export class DisidTableViewComponent implements OnInit {
 
-  public employedList:Employed[];
-  public employed:Employed;
-  public departamentList:Departament[];
-  public departament:Departament;
+  public employedList: Employed[];
+  public employed: Employed;
+  public departamentList: Departament[];
+  public departament: Departament;
+  public depFiltered: Departament[];
 
-  constructor(private service:EmployedService, private router:Router) { }
+  constructor(private service: EmployedService, private router: Router) { }
 
   ngOnInit(): void {
     this.departament = new Departament();
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['home']);
-    }); 
+    });
     this.getAllEmployees();
     this.getAllDepartaments();
-    
+
   }
 
-  public getAllEmployees(){
+  public getAllEmployees() {
     this.service.getEmployees().subscribe(
-      (data:Employed[]) =>{
+      (data: Employed[]) => {
         this.employedList = data;
         console.log(this.employedList);
       })
   }
 
-  public getAllDepartaments(){
+  public getAllDepartaments() {
     this.service.getDepartaments().subscribe(
-      (data:Departament[]) =>{
+      (data: Departament[]) => {
         this.departamentList = data;
         console.log(this.departamentList);
       })
   }
 
-  public selectEmployed(item:Employed){
-   this.employed= item;
+  public selectEmployed(item: Employed) {
+    this.employed = item;
   }
 
   public getDepartamentValue(event) {
     this.departament.name = event.target.value;
+    this.filterby(this.departament.name);
     console.log(this.departament.name);
 
   }
 
-  public deleteEmployed(item:Employed){
+  public deleteEmployed(item: Employed) {
     console.log(item);
     let parseItemId = Number(item.id);
     this.service.deleteEmployed(parseItemId).subscribe();
-    this.getAllEmployees(); 
+    this.getAllEmployees();
   }
 
-  public editEmployed(item:Employed){
+  public editEmployed(item: Employed) {
     console.log(item);
     localStorage.setItem('employed', JSON.stringify(item));
     this.router.navigateByUrl('/addEmployed');
+  }
+
+  private filterby(departament: string) {
+    this.service.filterBy(departament).subscribe(
+      (data: Departament[]) => {
+        this.depFiltered = data;
+        console.log(this.depFiltered);
+      })
   }
 
 }
