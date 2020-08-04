@@ -22,13 +22,16 @@ export class DisidCreateEmployedViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.employedModel = new Employed();
+    this.employedModel.departament = new Departament();
     this.getDepartaments();
     this.infoEmployed = this.getEmployedToEdit();
-    if(this.infoEmployed === undefined){
-      this.employedModel.departament = new Departament();
+    if(this.infoEmployed === null){
       
+      this.employedModel = new Employed();
+      this.employedModel.departament = new Departament();
+
     }else{
-      this.infoEmployed = this.getEmployedToEdit();
+
       this.employedModel.name = this.infoEmployed.name;
       this.employedModel.age = this.infoEmployed.age;
       this.employedModel.entryDate = this.infoEmployed.entryDate;
@@ -92,11 +95,21 @@ export class DisidCreateEmployedViewComponent implements OnInit {
 
   public getDepartamentValue(event) {
     this.employedModel.departament.name = event.target.value;
+    console.log(this.employedModel.departament.name);
+    
+  }
+
+  public getDepartamentValue2(event) {
+    this.infoEmployed.departament.name = event.target.value;
+    console.log(this.infoEmployed.departament.name);
+    
   }
 
   public setEmployed() {
     this.service.postEmployed(this.employedModelOutput).subscribe();
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/home']);
+    });
   }
 
   public editEmployed(){
