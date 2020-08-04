@@ -25,3 +25,23 @@
   outline: none;
   box-shadow: none;
 }
+select{
+  cursor: pointer;
+  position: relative;
+  width: 5%;
+  right: 10%;
+  background: none;
+  border: 0;
+  z-index: 1;
+  padding-top: 1%;
+  outline:0px;
+  appearance: none;
+	-webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  outline: none;
+}
+select:focus {
+  outline: none;
+}
+

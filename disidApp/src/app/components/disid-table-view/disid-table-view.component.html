@@ -1,3 +1,4 @@
+<app-disid-nav-view></app-disid-nav-view>
 <div class="topSpace">
   <table class="table table-striped sizeTable">
     <thead>
@@ -8,7 +9,11 @@
         <th scope="col">Age</th>
         <th scope="col">Entry date</th>
         <th scope="col">Departament</th>
-        <th scope="col">Options</th>
+        <th scope="col" style="width: 15%;">Filter by <span class="material-icons">list</span><select class=" col" (change)="getDepartamentValue($event)" id="exampleFormControlSelect2">
+         <span class="material-icons">list</span>
+          <option *ngFor="let item of departamentList">{{item.name}}</option>
+        </select>
+      </th>
       </tr>
     </thead>
     <tbody>

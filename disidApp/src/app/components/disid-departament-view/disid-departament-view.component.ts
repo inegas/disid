@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Departament } from '../../BBDD/entities/database-model';
 import { EmployedService } from '../../services/employed.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-disid-departament-view',
@@ -12,7 +13,7 @@ export class DisidDepartamentViewComponent implements OnInit {
 
   public departamentModel: Departament
 
-  constructor(private serviceDepartament: EmployedService) { }
+  constructor(private serviceDepartament: EmployedService, private router:Router) { }
 
   ngOnInit(): void {
     this.departamentModel = new Departament();

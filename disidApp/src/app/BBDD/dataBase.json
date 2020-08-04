@@ -15,7 +15,9 @@
       "lastName": "Banegas",
       "age": 1897,
       "entryDate": "0123-03-12T00:00:00.000Z",
-      "departament": {},
+      "departament": {
+        "name": "Finances"
+      },
       "id": 2
     },
     {
@@ -57,31 +59,11 @@
         "name": "Human resources"
       },
       "id": 7
-    },
-    {
-      "name": "s",
-      "lastName": "a",
-      "age": 2008,
-      "entryDate": "0012-12-12T00:00:00.000Z",
-      "departament": {
-        "name": "Finances"
-      },
-      "id": 12
-    },
-    {
-      "name": "Dani",
-      "lastName": "d",
-      "age": 2008,
-      "entryDate": "0001-02-21T00:00:00.000Z",
-      "departament": {
-        "name": "Finances"
-      },
-      "id": 13
     }
   ],
   "departament": [
     {
-      "name": "Marketing",
+      "name": "Finances",
       "id": 1
     },
     {
@@ -89,12 +71,44 @@
       "id": 2
     },
     {
-      "name": "Finances",
+      "name": "Administration",
       "id": 3
     },
     {
       "name": "I+D",
       "id": 4
+    },
+    {
+      "name": "Test",
+      "id": 5
+    },
+    {
+      "name": "Other",
+      "id": 6
+    },
+    {
+      "name": "ANOTHER ONE",
+      "id": 7
+    },
+    {
+      "name": "JAJA",
+      "id": 8
+    },
+    {
+      "name": "dasdas",
+      "id": 9
+    },
+    {
+      "name": "?¿?¿",
+      "id": 10
+    },
+    {
+      "name": "nice one",
+      "id": 11
+    },
+    {
+      "name": "dadasd",
+      "id": 12
     }
   ]
 }

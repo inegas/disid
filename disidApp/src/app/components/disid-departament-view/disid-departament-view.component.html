@@ -1,7 +1,5 @@
 <div class="formSize">
-  <form
-    [formGroup]="departamentForm"
-  >
+  <form [formGroup]="departamentForm">
     <div class="form-group">
       <label for="exampleInputEmail1">Departament name:</label>
       <input
@@ -22,6 +20,7 @@
       class="btn btn-link"
       *ngIf="departamentForm.invalid"
       [disabled]="true"
+      routerLink="/home"
     >
       Create
     </button>
@@ -31,8 +30,12 @@
       (click)="onFormSubmit(departamentForm.value)"
       *ngIf="departamentForm.valid"
       [disabled]="false"
+      routerLink ="/home"
     >
       Create
+    </button>
+    <button type="submit" class="btn btn-link" routerLink="/home">
+      Close
     </button>
   </form>
 </div>

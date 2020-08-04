@@ -16,7 +16,7 @@ export class DisidCreateEmployedViewComponent implements OnInit {
   public employedModel: Employed;
   public employedModelOutput: Employed;
   public allDepartaments: Departament[];
-  public infoEmployed:Employed;
+  public infoEmployed: Employed;
 
   constructor(private service: EmployedService, private router: Router) { }
 
@@ -25,12 +25,12 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     this.employedModel.departament = new Departament();
     this.getDepartaments();
     this.infoEmployed = this.getEmployedToEdit();
-    if(this.infoEmployed === null){
-      
+    if (this.infoEmployed === null) {
+
       this.employedModel = new Employed();
       this.employedModel.departament = new Departament();
 
-    }else{
+    } else {
 
       this.employedModel.name = this.infoEmployed.name;
       this.employedModel.age = this.infoEmployed.age;
@@ -96,13 +96,13 @@ export class DisidCreateEmployedViewComponent implements OnInit {
   public getDepartamentValue(event) {
     this.employedModel.departament.name = event.target.value;
     console.log(this.employedModel.departament.name);
-    
+
   }
 
   public getDepartamentValue2(event) {
     this.infoEmployed.departament.name = event.target.value;
     console.log(this.infoEmployed.departament.name);
-    
+
   }
 
   public setEmployed() {
@@ -112,13 +112,13 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     });
   }
 
-  public editEmployed(){
+  public editEmployed() {
     this.service.editEmployed(this.infoEmployed).subscribe();
     localStorage.removeItem('employed');
     this.router.navigateByUrl('/home');
   }
 
-  public cleanLocalStorage(){
+  public cleanLocalStorage() {
     if (this.infoEmployed) {
       localStorage.removeItem('employed');
       this.router.navigateByUrl('/home');
@@ -144,8 +144,8 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     return getEntryDate;
   }
 
-  private getEmployedToEdit(){
-    let employed:Employed = JSON.parse(localStorage.getItem('employed'));
+  private getEmployedToEdit() {
+    let employed: Employed = JSON.parse(localStorage.getItem('employed'));
     return employed;
   }
 
