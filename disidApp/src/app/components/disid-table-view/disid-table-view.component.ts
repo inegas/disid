@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployedService } from '../../services/employed.service';
 import { Employed, Departament } from '../../BBDD/entities/database-model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-disid-table-view',
@@ -12,7 +13,7 @@ export class DisidTableViewComponent implements OnInit {
   public employedList:Employed[];
   public employed:Employed;
 
-  constructor(private service:EmployedService) { }
+  constructor(private service:EmployedService, private router:Router) { }
 
   ngOnInit(): void {
     this.getAllEmployees();
@@ -34,8 +35,8 @@ export class DisidTableViewComponent implements OnInit {
   public deleteEmployed(item:Employed){
     console.log(item);
     let parseItemId = Number(item.id);
-    this.service.deleteEmployed(parseItemId);
-    
+    this.service.deleteEmployed(parseItemId).subscribe();
+    this.getAllEmployees(); 
   }
 
 }
