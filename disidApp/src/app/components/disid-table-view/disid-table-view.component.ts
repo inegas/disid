@@ -34,15 +34,15 @@ export class DisidTableViewComponent implements OnInit {
     this.service.getEmployees().subscribe(
       (data: Employed[]) => {
         this.employedList = data;
-        console.log(this.employedList);
+        //console.log(this.employedList);
       })
   }
 
-  public getAllDepartaments() {
+  public getAllDepartaments(): void {
     this.service.getDepartaments().subscribe(
       (data: Departament[]) => {
         this.departamentList = data;
-        console.log(this.departamentList);
+        //console.log(this.departamentList);
       })
   }
 
@@ -50,68 +50,62 @@ export class DisidTableViewComponent implements OnInit {
     this.employed = item;
   }
 
-  public getDepartamentValue(event) {
+  public getDepartamentValue(event): void {
     this.departament.name = event.target.value;
     this.filterby(this.departament.name);
-    console.log(this.departament.name);
+    //console.log(this.departament.name);
 
   }
 
-  public deleteEmployed(item: Employed) {
-    console.log(item);
+  public deleteEmployed(item: Employed): void {
+    //console.log(item);
     let parseItemId = Number(item.id);
     this.service.deleteEmployed(parseItemId).subscribe();
     this.getAllEmployees();
     location.reload();
   }
 
-  public editEmployed(item: Employed) {
-    console.log(item);
+  public editEmployed(item: Employed): void {
+    //console.log(item);
     localStorage.setItem('employed', JSON.stringify(item));
     this.router.navigateByUrl('/addEmployed');
   }
 
-  public getEmployed(name: string) {
+  public getEmployed(name: string): void {
     this.service.getEmployed(name).subscribe(
       (data: Employed[]) => {
         this.empFiltered = data;
-        console.log(this.empFiltered);
+        //console.log(this.empFiltered);
         this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
           this.router.navigate(['/home']);
         });
       })
   }
 
-  public getEntryDate(date:Date){
-    console.log(date);
+  public getEntryDate(date: Date): void {
+    //console.log(date);
     this.service.getEmployees().subscribe(
-      (data:Employed[]) =>{
+      (data: Employed[]) => {
         this.employedList = data;
-        this.employedList.forEach(e =>{
+        this.employedList.forEach(e => {
           if (e.entryDate >= date) {
             this.filtredDates.push(e);
           }
         })
-        console.log(this.employedList);
+        //console.log(this.employedList);
       })
-    // this.employedList.forEach(e =>{
-    //   e.entryDate >= date;
-    //   filtredDates.push(e);
-    // })
-    console.log(this.employedList);
+    //console.log(this.employedList);
   }
 
-  public goBack() {
+  public goBack(): void {
     location.reload();
   }
 
-  private filterby(departament: string) {
+  private filterby(departament: string): void {
     this.service.filterBy(departament).subscribe(
       (data: Employed[]) => {
         this.depFiltered = data;
-        console.log(this.depFiltered);
+        //console.log(this.depFiltered);
       })
   }
-
-  
 }

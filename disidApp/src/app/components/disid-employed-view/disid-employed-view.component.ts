@@ -3,7 +3,6 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { Employed, Departament } from '../../BBDD/entities/database-model';
 import { EmployedService } from '../../services/employed.service';
 import { Router } from '@angular/router';
-import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-disid-employed-view',
@@ -45,18 +44,18 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     this.service.getDepartaments().subscribe(
       (data: Departament[]) => {
         this.allDepartaments = data;
-        console.log(this.allDepartaments);
+        //console.log(this.allDepartaments);
       })
   }
 
-  employedForm = new FormGroup({
+  public employedForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.maxLength(20)]),
     lastName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
     age: new FormControl('', [Validators.required, , Validators.maxLength(10)]),
     entryDate: new FormControl('', [Validators.required, , Validators.maxLength(10)]),
   })
 
-  employedEditForm = new FormGroup({
+  public employedEditForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.maxLength(20)]),
     lastName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
   })
@@ -66,9 +65,9 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     this.getEntryDate(employedData);
 
     let age = this.getAgeEmployed(employedData);
-    console.log(age + 'im god');
+    //console.log(age + 'im god');
     let entryDate = this.getEntryDate(employedData);
-    console.log(entryDate + 'im to god');
+    //console.log(entryDate + 'im to god');
 
     this.employedModelOutput = {
       name: this.employedModel.name,
@@ -77,7 +76,7 @@ export class DisidCreateEmployedViewComponent implements OnInit {
       entryDate: entryDate,
       departament: this.employedModel.departament
     }
-    console.log(this.employedModelOutput);
+    //console.log(this.employedModelOutput);
   }
 
   public onFormEditSubmit(): void {
@@ -90,22 +89,22 @@ export class DisidCreateEmployedViewComponent implements OnInit {
       departament: this.infoEmployed.departament,
       id: this.infoEmployed.id
     }
-    console.log(this.employedModelOutput);
+    //console.log(this.employedModelOutput);
   }
 
-  public getDepartamentValue(event) {
+  public getDepartamentValue(event): void {
     this.employedModel.departament.name = event.target.value;
-    console.log(this.employedModel.departament.name);
+    //console.log(this.employedModel.departament.name);
 
   }
 
-  public getDepartamentValue2(event) {
+  public getDepartamentValue2(event): void {
     this.infoEmployed.departament.name = event.target.value;
-    console.log(this.infoEmployed.departament.name);
+    //console.log(this.infoEmployed.departament.name);
 
   }
 
-  public setEmployed() {
+  public setEmployed(): void {
     this.service.postEmployed(this.employedModelOutput).subscribe();
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/home']);
@@ -113,13 +112,13 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
-  public editEmployed() {
+  public editEmployed(): void {
     this.service.editEmployed(this.infoEmployed).subscribe();
     localStorage.removeItem('employed');
     this.router.navigateByUrl('/home');
   }
 
-  public cleanLocalStorage() {
+  public cleanLocalStorage(): void {
     if (this.infoEmployed) {
       localStorage.removeItem('employed');
       this.router.navigateByUrl('/home');
