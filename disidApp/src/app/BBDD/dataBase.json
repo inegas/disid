@@ -9,6 +9,26 @@
         "name": "Human resources"
       },
       "id": 9
+    },
+    {
+      "name": "pololo",
+      "lastName": "men",
+      "age": 20,
+      "entryDate": "2200-02-20T00:00:00.000Z",
+      "departament": {
+        "name": "Administration"
+      },
+      "id": 10
+    },
+    {
+      "name": "pepe",
+      "lastName": "juan ",
+      "age": 20,
+      "entryDate": "2200-02-02T00:00:00.000Z",
+      "departament": {
+        "name": "Administration"
+      },
+      "id": 11
     }
   ],
   "departament": [
@@ -67,6 +87,10 @@
     {
       "name": "pruebita",
       "id": 14
+    },
+    {
+      "name": "otro mas",
+      "id": 15
     }
   ]
 }
