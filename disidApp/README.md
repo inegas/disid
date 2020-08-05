@@ -32,7 +32,50 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 Necesitaremos tener instalado json-server, el cual nos está simulando la base de datos
 
-\*npm install -g json-server\*
+`npm install -g json-server`
 
-Para el resto de dependencias ya las tenemos en el package.json añadidas y solo con lanzar `npm install` nos será suficienta para descargarlas
+Despues debemos levantar la base de datos para que los endpoints sean operativos
 
+Con el siguiente comando la levantariamos `json-server --watch dataBase.json`
+
+![](src/imagesGit/Image%2010.jpg)
+
+Para el resto de dependencias ya las tenemos en el package.json añadidas y solo con lanzar `npm install` nos será suficienta para descargarlas.
+
+###### Casos de uso
+
+A continuación vemos el home de la app
+
+![](src/imagesGit/image1.jpg)
+
+Podemos aplicar filtros
+
+![](src/imagesGit/Image%202.jpg)
+
+Podemos eliminar los filtros
+
+![](src/imagesGit/Image%203.jpg)
+
+Realizar una busqueda concreta de un empleado
+
+![](src/imagesGit/Image%204.jpg)
+
+Podemos añadir un empleado
+
+![](src/imagesGit/Image%205.jpg)
+
+Podemos añadir un departamento
+
+![](src/imagesGit/Image%207.jpg)
+
+Confirmamos que queremos eliminar un empleado
+
+![](src/imagesGit/Image%208.jpg)
+
+Editamos un empleado seleccionado con sus datos precargados
+
+![](src/imagesGit/Image%209.jpg)
+
+## Estructura y flujo de datos
+
+La app se compone de 4 componentes -> Los cuales se comunican através de outpus-inputs y localStorage (comunicacion child-child)
