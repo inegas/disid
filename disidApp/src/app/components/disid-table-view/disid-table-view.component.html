@@ -1,4 +1,4 @@
-<app-disid-nav-view></app-disid-nav-view>
+<app-disid-nav-view (employedNameOutput)="getEmployed($event)" (entryDateOutput)="getEntryDate($event)"></app-disid-nav-view>
 <div class="topSpace">
   <table class="table table-striped sizeTable">
     <thead>
@@ -11,14 +11,14 @@
         <th scope="col">Departament</th>
         <th scope="col" style="width: 15%;">Filter by <span class="material-icons">list</span><select class=" col" (change)="getDepartamentValue($event)" id="exampleFormControlSelect2">
          <span class="material-icons">list</span>
-          <option value="">Reset filter</option>
+          <option (change)="getDepartamentValue($event)" value="">Clean filter</option>
           <hr>
           <option *ngFor="let item of departamentList">{{item.name}}</option>
         </select>
       </th>
       </tr>
     </thead>
-    <tbody *ngIf="!depFiltered">
+    <tbody *ngIf="!depFiltered && !empFiltered">
       <tr (click)="selectEmployed(item)" *ngFor="let item of employedList">
         <th scope="row">{{item.id}}</th>
         <td>{{item.name}}</td>
@@ -32,7 +32,7 @@
         </td>
       </tr>
     </tbody>
-    <tbody *ngIf="depFiltered">
+    <tbody *ngIf="depFiltered && !empFiltered">
       <tr (click)="selectEmployed(item)" *ngFor="let item of depFiltered">
         <th scope="row">{{item.id}}</th>
         <td>{{item.name}}</td>
@@ -46,7 +46,37 @@
         </td>
       </tr>
     </tbody>
+    <tbody *ngIf="depFiltered && empFiltered">
+      <tr (click)="selectEmployed(item)" *ngFor="let item of empFiltered">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.lastName}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.entryDate | date}}</td>
+        <td>{{item.departament.name}}</td>
+        <td>
+          <span class="material-icons ico" (click)="editEmployed(item)">create</span>
+          <span class="material-icons ico" data-toggle="modal" data-target="#deleteEmployedModal">delete</span>
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="!depFiltered && empFiltered">
+      <tr (click)="selectEmployed(item)" *ngFor="let item of empFiltered">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.lastName}}</td>
+        <td>{{item.age}}</td>
+        <td>{{item.entryDate | date}}</td>
+        <td>{{item.departament.name}}</td>
+        <td>
+          <span class="material-icons ico" (click)="editEmployed(item)">create</span>
+          <span class="material-icons ico" data-toggle="modal" data-target="#deleteEmployedModal">delete</span>
+        </td>
+      </tr>
+    </tbody>
+    <button (click)="goBack()" type="button" class="btn btn-link buttonsForm">Back</button> 
   </table>
+
 </div>
 <!-- Delete modal -->
 <div class="modal fade" id="deleteEmployedModal" tabindex="-1" role="dialog" aria-labelledby="deleteEmployedModal" aria-hidden="true">

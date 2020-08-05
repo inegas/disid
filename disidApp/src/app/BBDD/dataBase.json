@@ -3,22 +3,12 @@
     {
       "name": "Angel",
       "lastName": "Banegas",
-      "age": 1897,
-      "entryDate": "0123-03-12T00:00:00.000Z",
-      "departament": {
-        "name": "Finances"
-      },
-      "id": 2
-    },
-    {
-      "name": "Angel",
-      "lastName": "asd",
-      "age": 1697,
-      "entryDate": "0032-02-23T00:00:00.000Z",
+      "age": 808,
+      "entryDate": "1211-12-12T00:00:00.000Z",
       "departament": {
         "name": "Human resources"
       },
-      "id": 7
+      "id": 9
     }
   ],
   "departament": [
@@ -69,6 +59,14 @@
     {
       "name": "dadasd",
       "id": 12
+    },
+    {
+      "name": "paranormal",
+      "id": 13
+    },
+    {
+      "name": "pruebita",
+      "id": 14
     }
   ]
 }

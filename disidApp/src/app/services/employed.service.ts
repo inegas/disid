@@ -50,8 +50,18 @@ export class EmployedService {
     return this.http.put(url, employed, httpOptions);
   }
 
-  public filterBy(string){
-    const url = `${URL_BASE}/${URL_EMPLOYED}`+'?'+'departament.name_like'+'='+string;
+  public filterBy(name:string){
+    const url = `${URL_BASE}/${URL_EMPLOYED}`+'?'+'departament.name_like'+'='+name;
+    return this.http.get(url);
+  }
+
+  public getEmployed(name:string){
+    const url = `${URL_BASE}/${URL_EMPLOYED}`+'?'+'name_like'+'='+name;
+    return this.http.get(url);
+  }
+
+  public getEntryDate(date:Date){
+    const url = `${URL_BASE}/${URL_EMPLOYED}`+'?'+'date_like'+'='+date;
     return this.http.get(url);
   }
 

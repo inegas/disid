@@ -1,3 +1,4 @@
+<app-disid-nav-view></app-disid-nav-view>
 <div class="divSize">
   <form *ngIf="!infoEmployed"
     [formGroup]="employedForm"
@@ -197,7 +198,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-link buttonsModal" data-dismiss="modal">Cancel</button>
-        <button type="button" (click)="setEmployed()" data-dismiss="modal" class="btn btn-link buttonsModal" routerLink="/home">Confirm</button>
+        <button type="button" (click)="setEmployed()" data-dismiss="modal" class="btn btn-link buttonsModal">Confirm</button>
       </div>
     </div>
   </div>

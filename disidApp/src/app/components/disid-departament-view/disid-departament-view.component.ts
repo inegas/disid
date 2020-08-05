@@ -30,6 +30,10 @@ export class DisidDepartamentViewComponent implements OnInit {
     } else {
       this.serviceDepartament.postDepartament(departamentData).subscribe();
       this.departamentModel.name = '';
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/home']);
+      });
+      this.router.navigateByUrl('/home');
     }
   }
 }

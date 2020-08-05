@@ -110,6 +110,7 @@ export class DisidCreateEmployedViewComponent implements OnInit {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/home']);
     });
+    this.router.navigateByUrl('/home');
   }
 
   public editEmployed() {
