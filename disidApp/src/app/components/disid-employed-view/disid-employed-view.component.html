@@ -66,6 +66,7 @@
     <div class="form-group">
       <small for="exampleFormControlSelect1">Departament</small>
       <select (change)="getDepartamentValue($event)" class="form-control" id="exampleFormControlSelect1">
+        <option value="">Select departament</option>
         <option *ngFor="let item of allDepartaments">{{item.name}}</option>
       </select>
     </div>
@@ -106,6 +107,7 @@
     <div class="form-group">
       <small for="exampleFormControlSelect2">Departament</small>
       <select (change)="getDepartamentValue2($event)" class="form-control" id="exampleFormControlSelect2">
+        <option value="">Select departament</option>
         <option *ngFor="let item of allDepartaments">{{item.name}}</option>
       </select>
     </div>

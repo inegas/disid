@@ -3,32 +3,32 @@
     {
       "name": "Angel",
       "lastName": "Banegas",
-      "age": 808,
-      "entryDate": "1211-12-12T00:00:00.000Z",
+      "age": 24,
+      "entryDate": "2020-08-20T00:00:00.000Z",
+      "departament": {
+        "name": "Finances"
+      },
+      "id": 1
+    },
+    {
+      "name": "Rayo",
+      "lastName": "Mcqueen",
+      "age": 20,
+      "entryDate": "2005-02-14T00:00:00.000Z",
+      "departament": {
+        "name": "Finances"
+      },
+      "id": 2
+    },
+    {
+      "name": "Elon",
+      "lastName": "Musk",
+      "age": 49,
+      "entryDate": "2000-01-20T00:00:00.000Z",
       "departament": {
         "name": "Human resources"
       },
-      "id": 9
-    },
-    {
-      "name": "pololo",
-      "lastName": "men",
-      "age": 20,
-      "entryDate": "2200-02-20T00:00:00.000Z",
-      "departament": {
-        "name": "Administration"
-      },
-      "id": 10
-    },
-    {
-      "name": "pepe",
-      "lastName": "juan ",
-      "age": 20,
-      "entryDate": "2200-02-02T00:00:00.000Z",
-      "departament": {
-        "name": "Administration"
-      },
-      "id": 11
+      "id": 3
     }
   ],
   "departament": [
@@ -39,58 +39,6 @@
     {
       "name": "Human resources",
       "id": 2
-    },
-    {
-      "name": "Administration",
-      "id": 3
-    },
-    {
-      "name": "I+D",
-      "id": 4
-    },
-    {
-      "name": "Test",
-      "id": 5
-    },
-    {
-      "name": "Other",
-      "id": 6
-    },
-    {
-      "name": "ANOTHER ONE",
-      "id": 7
-    },
-    {
-      "name": "JAJA",
-      "id": 8
-    },
-    {
-      "name": "dasdas",
-      "id": 9
-    },
-    {
-      "name": "?¿?¿",
-      "id": 10
-    },
-    {
-      "name": "nice one",
-      "id": 11
-    },
-    {
-      "name": "dadasd",
-      "id": 12
-    },
-    {
-      "name": "paranormal",
-      "id": 13
-    },
-    {
-      "name": "pruebita",
-      "id": 14
-    },
-    {
-      "name": "otro mas",
-      "id": 15
     }
   ]
 }
