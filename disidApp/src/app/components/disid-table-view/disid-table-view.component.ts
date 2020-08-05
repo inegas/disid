@@ -14,7 +14,7 @@ export class DisidTableViewComponent implements OnInit {
   public employed: Employed;
   public departamentList: Departament[];
   public departament: Departament;
-  public depFiltered: Departament[];
+  public depFiltered: Employed[];
 
   constructor(private service: EmployedService, private router: Router) { }
 
@@ -70,7 +70,7 @@ export class DisidTableViewComponent implements OnInit {
 
   private filterby(departament: string) {
     this.service.filterBy(departament).subscribe(
-      (data: Departament[]) => {
+      (data: Employed[]) => {
         this.depFiltered = data;
         console.log(this.depFiltered);
       })

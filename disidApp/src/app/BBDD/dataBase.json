@@ -1,16 +1,6 @@
 {
   "employees": [
     {
-      "name": "hola",
-      "lastName": "biririri",
-      "age": 2008,
-      "entryDate": "0012-12-12T00:00:00.000Z",
-      "departament": {
-        "name": "I+D"
-      },
-      "id": 1
-    },
-    {
       "name": "Angel",
       "lastName": "Banegas",
       "age": 1897,
@@ -19,36 +9,6 @@
         "name": "Finances"
       },
       "id": 2
-    },
-    {
-      "name": "asdasd",
-      "lastName": "asdasd",
-      "age": 1897,
-      "entryDate": "0123-03-12T00:00:00.000Z",
-      "departament": {
-        "name": "Finances"
-      },
-      "id": 3
-    },
-    {
-      "name": "Angel",
-      "lastName": "Mcqueen",
-      "age": 1808,
-      "entryDate": "0123-03-12T00:00:00.000Z",
-      "departament": {
-        "name": "Finances"
-      },
-      "id": 4
-    },
-    {
-      "name": "vawawawa",
-      "lastName": "wawaww",
-      "age": 1997,
-      "entryDate": "0003-02-23T00:00:00.000Z",
-      "departament": {
-        "name": "I+D"
-      },
-      "id": 5
     },
     {
       "name": "Angel",
